@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+{% block title %} home {% endblock%}
+{% block head %}
+  {{ super() }}
+<style>
+    section{
+            background-image:url('./static/img/home-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 1;
+        margin-top: 20px;
+        padding: 15% 5% 5% 0;
+        display: flex;
+        flex-direction: column; align-items: center;
+    }
+    table,th,td
+    { 
+        border-collapse: collapse;
+        border: 1px solid red;
+        padding: 20px;
+        text-align: center;
+        color: purple;
+    }
+    th
+    {
+        font-size: 22px;
+    }
+    td
+    {
+        font-size: 20px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<section>
+    <div style="display: flex;">
+        <h1 style="font-size: 24px; font-weight: 700; color:red;">Trainee Details</h1>
+        <div style="margin: 10px 50px;">
+            <button class="btn btn-primary" style="padding: 10px 20px;"><a href="{{url_for('addData')}}" style="color: white;font-size: 20px">Create Data</a> </button>
+        </div>
+        <div style="margin: 10px 0;">
+            <button class="btn btn-primary" style="padding: 10px 20px; font-size: 20px;"><a href="{{url_for('logout')}}" style="color: white;"> Logout </a></button>
+        </div>
+    </div>
+    <table>
+        
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Degree</th>
+            <th>Year of PassedOut</th>
+            <th>course</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for i in data%}
+        <tr>
+            <td>{{i.username}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.degree}}</td>
+            <td>{{i.year}}</td>
+            <td>{{i.course}}</td>
+            <td><a href="{{url_for('editData',_id=i._id)}}" class="btn btn-primary">Edit</a></td>
+            <td><a href="{{url_for('deleteData',_id=i._id)}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+{% block title %}login {% endblock%}
+{% block head %}
+  {{ super() }}
+  <style>
+    .login-left{
+        height: 35rem;
+        background-image:url('./static/img/login-bg.avif') ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position:bottom;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    .login-right
+    {
+        height: 35rem;
+        border-top:1px solid gray ;
+        border-right:1px solid gray ;
+        border-bottom:1px solid gray ;
+    }
+    .login-form
+    {
+        height: 34rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .form-elmt
+    {
+        font-size: 20px;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col login-left">
+            <h2>Welcome Trainees..!</h2><br>
+            <p style="font-size: 20px;">"If you are not willing to learn, no one can help you. If you are determined to learn, no one can stop you.”</p>
+        </div>
+        <div class="col">
+            <div class="login-right">
+            <h3>Login</h3>
+            <form method="post" class="login-form">
+                <div class="form-elmt">
+                    <label for="username">UserName</label>
+                    <input type="text" id="username" name="username" placeholder="Enter the Name" class="form-group">
+                </div>
+                <div class="form-elmt">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter the Password" class="form-group">
+                </div>
+                <div class="form-elmt" style="padding-top:40px ;">
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 20px; font-size: 20px;"> Login </button>
+                    <!-- <button class="btn btn-primary" style="padding: 10px 20px;"><a href="{{url_for('addData')}}" style="color: white;font-size: 20px">Create Data</a> </button> -->
+                </div>
+                <div style="padding-top:60px ;">
+                    <span style="display: inline-block;">Not a Member..? Create New...</span>
+                    <a href="{{url_for('signup')}}" style="font-size: 20px;">Signup</a>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

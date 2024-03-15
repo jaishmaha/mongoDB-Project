@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+{% block title %} signup {% endblock%}
+{% block head %}
+  {{ super() }}
+  <style>
+    .sign-left{
+        height: 35rem;
+        
+        background-position:bottom;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    .login-right
+    {
+        height: 35rem;
+        border-top:1px solid gray ;
+        border-right:1px solid gray ;
+        border-bottom:1px solid gray ;
+    }
+    .sign-form
+    {
+        height: 34rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .form-elmt
+    {
+        font-size: 20px;
+    }
+  </style>
+
+{% endblock %}
+{% block content %}
+<div style="background-image:url('./static/img/login-bg.avif') ;background-repeat: no-repeat;background-size: cover;">
+<div class="container">
+    <div class="row">
+        <div class="col sign-left">
+            <h2>Signup Here..!</h2><br>
+            <p style="font-size: 20px;">"If you are not willing to learn, no one can help you. If you are determined to learn, no one can stop you.”</p>
+        </div>
+        <div class="col">
+            <div class="sign-right"></div>
+            <form method="post" class="sign-form">
+                <div class="form-elmt">
+                    <label for="username" style="color: white; font-weight: 600;">UserName </label>
+                    <input type="text" id="username" name="username" placeholder="Enter the Name" class="form-group">
+                </div>
+                <div class="form-elmt">
+                    <label for="password" style="color: white; font-weight: 600;">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter the Password" class="form-group">
+                </div>
+                <div class="form-elmt">
+                    <label for="email" style="color: white; font-weight: 600; padding-right: 20px;">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter the mailId" class="form-group">
+                </div>
+                <div style="padding-top:40px ;">
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 20px;"> Signup </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
